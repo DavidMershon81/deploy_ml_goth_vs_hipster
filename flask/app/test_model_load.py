@@ -1,6 +1,6 @@
 #This script loads in a fast.ai classifier that I trained on colab
-#Then it prints out some predictions about if an image is goth or hipster
-#This was all set up to load into a docker container and run, even if the machine only has a CPU
+#Then it returns some predictions about if an image is goth or hipster
+#This was modified off the original test script to work with a flask web app
 
 from collections import namedtuple
 from fastai.vision.all import *
