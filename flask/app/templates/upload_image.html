@@ -26,5 +26,13 @@ Test Uploading Images
       </div>
     </div>
   </div>
-  
+
+    {% if prediction %}
+    <div class="container">
+        <h2>{{ prediction.description }}</h2>
+        <p>Prediction <strong>{{prediction.prediction}}</strong></p>
+        <p>Probability <strong>{{ prediction.probability }}</strong></p>
+    </div>
+    {% endif %}
+
 {% endblock %}

@@ -14,6 +14,7 @@ def upload_image():
         if request.files:
             image = request.files["image"]
             print(image)
-            return redirect(request.url)
+            #return redirect(request.url)
+            return render_template("upload_image.html", prediction=test_model_load.predict_uploaded_image(image))
 
     return render_template("upload_image.html")

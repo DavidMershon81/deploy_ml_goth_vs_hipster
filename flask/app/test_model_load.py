@@ -10,6 +10,11 @@ loaded_subculture_learn = load_learner(load_path/classifier_save_filename)
 
 PredictionInfo = namedtuple("PredictionInfo", "prediction probability description img_filename")
 
+def predict_uploaded_image(uploaded_image):
+    test_img = PILImage.create(uploaded_image)
+    prediction,p_index,probabilities = loaded_subculture_learn.predict(test_img)
+    return PredictionInfo(prediction=prediction, probability=probabilities[p_index], description="Uploaded Image", img_filename="NotSureYet")
+
 def get_prediction_info(img_filename, description):
     full_path = image_path = load_path/'static'/'images'/img_filename
     prediction,p_index,probabilities = loaded_subculture_learn.predict(full_path)
