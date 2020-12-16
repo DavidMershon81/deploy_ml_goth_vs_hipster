@@ -1,20 +1,21 @@
-from app import app
-from app import test_model_load
-from flask import render_template
-from flask import request, redirect
+from app import app, test_model_load
+from flask import request, jsonify, render_template
 
-@app.route("/")
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    test_predictions = test_model_load.get_test_predictions()
-    return render_template("index.html", test_predictions=test_predictions)
-
-@app.route("/upload_image", methods=["GET", "POST"])
-def upload_image():
     if request.method == "POST":
         if request.files:
             image = request.files["image"]
-            print(image)
-            #return redirect(request.url)
-            return render_template("upload_image.html", prediction=test_model_load.predict_uploaded_image(image))
+            prediction = test_model_load.predict_uploaded_image(image)
+            #print(f"prediction: {prediction.prediction} probability: {prediction.probability}")
+            prediction_display_html = render_template("prediction_display.html", prediction=prediction)
+            return jsonify({"prediction_display_html" : prediction_display_html })
+    else:
+        return render_template("index.html")
 
-    return render_template("upload_image.html")
+
+@app.route("/test_model")
+def test_model():
+    test_predictions = test_model_load.get_test_predictions()
+    return render_template("test_model.html", test_predictions=test_predictions)

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Test Display ML Model
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+
+{% block main %}
+<div class="container">
+    <h1>Displaying some test ML model Data</h1>
+    {% for tp in test_predictions %}
+    <div class="container">
+        <h2>{{ tp.description }}</h2>
+        <img src="/static/images/{{tp.img_filename}}" class="img test-img" alt="{{tp.description}}">
+        <p>Prediction <strong>{{tp.prediction}}</strong></p>
+        <p>Probability <strong>{{ tp.probability }}</strong></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

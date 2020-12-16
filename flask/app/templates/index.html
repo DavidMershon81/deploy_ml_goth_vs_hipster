@@ -5,19 +5,29 @@ Test Display ML Model
 {% endblock %}
 
 {% block scripts %}
+<script src="/static/get_prediction_for_image.js"></script>
 {% endblock %}
 
 
 {% block main %}
-    <div class="container">
-        <h1>Displaying some test ML model Data</h1>
-        {% for tp in test_predictions %}
-        <div class="container">
-            <h2>{{ tp.description }}</h2>
-            <img src="/static/images/{{tp.img_filename}}" class="img test-img" alt="{{tp.description}}">
-            <p>Prediction <strong>{{tp.prediction}}</strong></p>
-            <p>Probability <strong>{{ tp.probability }}</strong></p>
-        </div>
-        {% endfor %}
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <form action="/" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label>Upload an image to find out if it contains a goth or a hipster...</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" name="image" id="image">
+              <label class="custom-file-label" for="image">Select image...</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <div id="error_alert" class="alert alert-danger" role="alert"></div>
+      </div>
     </div>
+  </div>
+  <div id="prediction_container" class="container">
+  </div>
+</div>
 {% endblock %}
