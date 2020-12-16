@@ -3,8 +3,28 @@
 }
 
 body {
-    background-color: black;
-    color: lightgray;
+    background-color: #302836;
+    color: #eab2e5;
+}
+
+.btn-primary {
+    background-color: #45367a;
+    color: #bfb6e0;
+    border-style: none;
+}
+
+.btn-primary:hover {
+    background-color: #9882e9;
+    color: #d7d1eb;
+    border-style: none;
+}
+
+.prediction-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
 }
 
 .test-img {

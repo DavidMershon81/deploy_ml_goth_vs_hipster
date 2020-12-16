@@ -15,19 +15,19 @@ Test Display ML Model
       <div class="col">
         <form action="/" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <label>Upload an image to find out if it contains a goth or a hipster...</label>
+            <label>Upload an image of a goth or a hipster, and I will analyze it for you.</label>
             <div class="custom-file">
               <input type="file" class="custom-file-input" name="image" id="image">
               <label class="custom-file-label" for="image">Select image...</label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Upload</button>
+          <button type="submit" class="btn btn-primary">Analyze...</button>
         </form>
         <div id="error_alert" class="alert alert-danger" role="alert"></div>
       </div>
     </div>
   </div>
-  <div id="prediction_container" class="container">
+  <div id="prediction_container" class="container prediction-container">
   </div>
 </div>
 {% endblock %}
