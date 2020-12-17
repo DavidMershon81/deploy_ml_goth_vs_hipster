@@ -13,9 +13,3 @@ def index():
             return jsonify({"prediction_display_html" : prediction_display_html })
     else:
         return render_template("index.html")
-
-
-@app.route("/test_model")
-def test_model():
-    test_predictions = test_model_load.get_test_predictions()
-    return render_template("test_model.html", test_predictions=test_predictions)
