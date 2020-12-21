@@ -14,4 +14,6 @@ def predict_uploaded_image(uploaded_image):
     test_img = PILImage.create(uploaded_image)
     prediction,p_index,probabilities = loaded_subculture_learn.predict(test_img)
     image_file_name = uploaded_image.filename
-    return PredictionInfo(prediction=prediction, probability=probabilities[p_index], description="Uploaded Image", img_filename=image_file_name)
+    probability_raw = probabilities[p_index].item()
+    probability = round(probability_raw * 100, 3)
+    return PredictionInfo(prediction=prediction, probability=probability, description="Uploaded Image", img_filename=image_file_name)
