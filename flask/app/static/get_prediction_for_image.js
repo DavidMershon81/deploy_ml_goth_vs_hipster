@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	reset_ui();
 	$('form').on('submit', send_image_to_server);
+	$('#image').on('change', set_uploaded_image_preview);
 });
 
 function reset_ui() 
@@ -8,6 +9,7 @@ function reset_ui()
 	$("#prediction_container").html("");
 	$("#progressbar_group").hide();
 	$("#error_alert").hide();
+	$("#output_group").hide();
 }
 
 function send_image_to_server(event) {
@@ -50,10 +52,27 @@ function on_recieve_prediction(data) {
 
     if(data.error) {
         $("#error_alert").text(data.error).show();
-        $("#prediction_container").html("");
+		$("#prediction_container").html("");
+		$("#output_group").show();
     }
     else {
         $("#error_alert").hide();
-        $("#prediction_container").html(data.prediction_display_html);
+		$("#prediction_container").html(data.prediction_display_html);
+		$("#output_group").show();
     }   
+}
+
+function set_uploaded_image_preview(input){
+	$("#output_group").hide();
+	var file = $("input[type=file]").get(0).files[0];
+
+	if(file){
+		var reader = new FileReader();
+
+		reader.onload = function(){
+			$("#preview_image").attr("src", reader.result);
+		}
+
+		reader.readAsDataURL(file);
+	}
 }

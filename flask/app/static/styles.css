@@ -23,15 +23,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     padding: 50px;
 }
 
-.test-img {
+.preview-image {
     max-height: 240px;
     margin: 20px;
 }
 
 .progressbar-group {
     margin-top: 30px;
+}
+
+.output-group {
+    display:flex;
+    flex-direction: row;
 }
