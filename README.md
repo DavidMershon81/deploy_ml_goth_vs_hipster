@@ -1,6 +1,6 @@
 This is a silly little project that I made as part of following along with Jeremy Howard's fast.ai Deep Learning for Coders MOOC. 
 
-During the class, I used a pretrained resnet model as the basis for a binary classifier that predicts of an image contains a goth or a hipster. 
+During the class, I used a pretrained resnet model as the basis for a binary classifier that predicts if an image contains a goth or a hipster. 
 
 After I was done fitting the model to my data set in a Jupyter notebook I saved the weights of the model and reloaded them into a simple flask based web app that allows the user to upload a photo and find out which subcuture (goth or hipster) the model predicts it represents.
 
