@@ -1,4 +1,4 @@
-This is a silly little project that I made as part of following along with Jeremy Howard's fast.ai Deep Learning for Coders MOOC. 
+This is a small project that I made as part of following along with Jeremy Howard's fast.ai Deep Learning for Coders MOOC. 
 
 During the class, I used a pretrained resnet model as the basis for a binary classifier that predicts if an image contains a goth or a hipster. 
 
